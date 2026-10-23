@@ -1,0 +1,18 @@
+{
+  "clip_id": "pen_spin_029",
+  "fps": 50.0,
+  "frames": 231,
+  "hands": [
+    "right"
+  ],
+  "objects": [
+    "pen250"
+  ],
+  "schema": "toporetarget_canonical",
+  "source": {
+    "sha256": "f4c08c7aa07038cfb4ffb791f177d60b608bdef699faacb8c3b7cc53032d8bc8",
+    "source_duration_s": 4.6125,
+    "source_fps": 78.69918699186992,
+    "source_frames": 364
+  }
+}

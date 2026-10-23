@@ -1,0 +1,59 @@
+<mujoco model="wuji_single_hand_obj_left">
+  <!-- Single-hand retargeting scene. The solver's scene builder
+       (toporetarget/solver/model.py) adds the 6-DoF virtual wrist, the palm
+       frame marker and the re-indexed home keyframe through
+       MjSpec; the playback scene adds a freejoint instead. The object is added
+       at runtime.
+
+       qpos layout with the virtual wrist:
+         [6 wrist (tx,ty,tz,rx,ry,rz) + 20 finger] = 26 -->
+
+  <compiler angle="radian" autolimits="true"/>
+  <!-- The hand MJCF's own simulation options, so attaching it keeps them
+       without a conflict; retargeting itself is kinematic. -->
+  <option jacobian="sparse" integrator="RK4" timestep="0.002" solver="Newton" iterations="50" tolerance="1e-10"/>
+
+  <asset>
+    <model name="wuji_lh" file="../wuji-description/hand2/hand2_2/body/mjcf/left.xml"/>
+    <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.9" rgb2="0.9 0.95 1" width="800" height="800"/>
+    <texture type="2d" name="groundplane" builtin="checker" mark="edge"
+      rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" markrgb="0.8 0.8 0.8" width="300" height="300"/>
+    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2"/>
+  </asset>
+
+  <statistic center="0 0 0.05" extent="0.3" meansize="0.01"/>
+
+  <visual>
+    <headlight diffuse=".8 .8 .8" ambient=".2 .2 .2" specular="1 1 1"/>
+    <global azimuth="180" elevation="-25" offwidth="1280" offheight="960"/>
+  </visual>
+
+  <worldbody>
+    <light pos="0 0 0.5" dir="0 0 -1"/>
+
+    <!-- Ground plane (visual only, no collision with hand) -->
+    <geom name="floor" pos="0 0 -0.1" size="0 0 0.01" type="plane"
+          material="groundplane" contype="0" conaffinity="0"/>
+
+    <!-- Left hand wrist body, at the origin; the wrist joints are added at runtime. -->
+    <body name="wuji_wrist" pos="0 0 0">
+      <attach model="wuji_lh" body="l_mount" prefix=""/>
+    </body>
+  </worldbody>
+
+  <keyframe>
+    <!-- Home pose: the Wuji Hand 2 rest pose of the 20 finger joints; the
+         scene builder re-indexes it once the wrist joints are added. -->
+    <key name="home"
+      qpos="0.30 -0.60 0.50 0.40
+            0.50 0.0 0.60 0.30
+            0.50 0.0 0.60 0.30
+            0.50 0.0 0.60 0.30
+            0.50 0.0 0.60 0.30"
+      ctrl="0.30 -0.60 0.50 0.40
+            0.50 0.0 0.60 0.30
+            0.50 0.0 0.60 0.30
+            0.50 0.0 0.60 0.30
+            0.50 0.0 0.60 0.30"/>
+  </keyframe>
+</mujoco>

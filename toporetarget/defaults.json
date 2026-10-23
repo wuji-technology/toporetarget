@@ -1,0 +1,100 @@
+{
+  "motion": {
+    "data": "data/pen_spin",
+    "clip": null,
+    "start": 0,
+    "end": -1,
+    "max_frames": 0
+  },
+  "hand_solver": {
+    "model": {
+      "base_mode": "floating"
+    },
+    "solver": {
+      "step_size": 0.1,
+      "n_iter_first": 20,
+      "n_iter": 10,
+      "warmup_convergence_delta": 0.001,
+      "s2_convergence_delta": 0.001
+    },
+    "warmup": {
+      "enabled": true,
+      "weight": 1.0,
+      "iters_first": 20,
+      "iters": 1
+    },
+    "pose_prior": {
+      "bone_dir_weight": 0.1
+    },
+    "smooth": {
+      "weight": 2.5
+    },
+    "mesh": {
+      "topology": "delaunay",
+      "laplacian_weight": 500.0,
+      "interaction_radius_m": 0.05,
+      "edge_weight": {
+        "mode": "exp",
+        "exp_decay_k": 30.0,
+        "cutoff_radius": null
+      },
+      "delaunay": {
+        "use_edge_threshold": false
+      },
+      "contact_margin_m": 0.002
+    },
+    "object": {
+      "sample_count": 50,
+      "use_frame": false,
+      "sampler": {
+        "mode": "proxcurv",
+        "seed": 0,
+        "sigma": 0.01,
+        "alpha": 30.0
+      }
+    },
+    "penetration": {
+      "enabled_warmup": true,
+      "enabled_s2": true,
+      "tolerance": 0.001,
+      "max_trust_shrinks": 3,
+      "hybrid": {
+        "enabled": true,
+        "backstop": 0.03,
+        "slack_weight": 100000.0
+      }
+    },
+    "wrist": {
+      "motion_enabled": true,
+      "translation_limit": 0.05,
+      "rotation_limit": 0.7853981633974483,
+      "zero_translation_weight": 100.0,
+      "zero_rotation_weight": 1.0
+    },
+    "point_mapping": {
+      "mcp_surrogate": "link2",
+      "mcp_surface_offset_m": 0.0,
+      "thumb_cmc_surrogate": "link2"
+    },
+    "selfcol": {
+      "margin": 0.001,
+      "radius_mode": "diag",
+      "max_window": 40,
+      "overlap": 10,
+      "max_iters": 8,
+      "lam_smooth": 2.5,
+      "dq_max": 0.1,
+      "tol": 0.0005
+    }
+  },
+  "view": {
+    "enabled": true,
+    "play": true,
+    "extra_args": {
+      "show_object": true,
+      "show_source_landmarks": false,
+      "show_contact_links": true,
+      "camera_distance": 0.6
+    }
+  }
+}

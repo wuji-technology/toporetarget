@@ -1,0 +1,28 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.ruff_cache/
+.pytest_cache/
+.venv/
+.vscode/
+.idea/
+.DS_Store
+*.log
+
+# Results and imported datasets are regenerated from the sources; of the
+# datasets under data/ only the pen-spin example ships.
+output/
+data/*
+!data/README.md
+!data/pen_spin/
+MUJOCO_LOG.TXT
+
+# Registry entries for captures of your own (see docs/datasets/README.md).
+motion_dataset_registry.local.json
+
+# MANO may not be redistributed: the model files stay in your own download.
+MANO_*.pkl
+# Local secrets, such as MANO_USERNAME / MANO_PASSWORD for `toporetarget download mano`.
+.env

@@ -1,0 +1,4 @@
+[submodule "toporetarget/assets/wuji-description"]
+	path = toporetarget/assets/wuji-description
+	url = https://github.com/wuji-technology/wuji-description.git
+	shallow = true

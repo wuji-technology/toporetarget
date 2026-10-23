@@ -1,0 +1,7 @@
+# The source distribution carries what the test suite needs: its fixtures and
+# the pen-spin example dataset. setuptools adds the tests themselves.
+include THIRD_PARTY_NOTICES.md
+include tests/conftest.py
+graft tests/golden
+graft data/pen_spin
+global-exclude *.py[cod] __pycache__ .DS_Store

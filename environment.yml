@@ -1,0 +1,17 @@
+# The TopoRetarget environment:
+#   conda env create -f environment.yml
+#   conda activate toporetarget
+# It installs the toporetarget package from this checkout in editable mode,
+# with the `toporetarget` command.
+name: toporetarget
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - -e .
+      # TACO and OakInk2 store their annotations as pickled PyTorch tensors;
+      # the CPU build reads them.
+      - --extra-index-url https://download.pytorch.org/whl/cpu
+      - torch

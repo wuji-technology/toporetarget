@@ -1,0 +1,59 @@
+{
+  "assets": {
+    "pen250": {
+      "compound_collision": true,
+      "extents_m": [
+        0.017999999225139618,
+        0.017999999225139618,
+        0.25
+      ],
+      "mass_kg": 0.0255,
+      "mesh_sha256": "7b10f8b82291925387fc4bbb975e438a22e4f3537aeeac53488146e655bbc8d4",
+      "source_metadata": {
+        "asset_name": "pen250",
+        "axis": "+Z toward A_top",
+        "collision": "collision.json: three primitives; do not use whole-mesh convex hull",
+        "mass_kg": 0.0255,
+        "mesh_sha256": "7b10f8b82291925387fc4bbb975e438a22e4f3537aeeac53488146e655bbc8d4",
+        "origin": "pen_center",
+        "source_to_capture_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "units": "m"
+      }
+    }
+  },
+  "clip_count": 1,
+  "clips": [
+    {
+      "clip_id": "pen_spin_029",
+      "object_asset": "pen250",
+      "ordinal": 1,
+      "source_duration_s": 4.6125,
+      "source_fps": 78.69918699186992,
+      "source_frames": 364,
+      "target_frames": 231
+    }
+  ],
+  "dataset": "pen_spin",
+  "duration_s": 4.62,
+  "frame_count": 231,
+  "handedness": "right",
+  "schema": "toporetarget_canonical",
+  "sort": "clip id ascending",
+  "target_fps": 50.0
+}

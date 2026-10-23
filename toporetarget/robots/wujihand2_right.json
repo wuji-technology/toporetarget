@@ -1,0 +1,128 @@
+{
+  "robot": {
+    "name": "wujihand2_right",
+    "scene": "../assets/scenes/single_hand_obj.xml",
+    "xml": "../assets/wuji-description/hand2/hand2_2/body/mjcf/right.xml",
+    "hand_side": "right",
+    "hand": {
+      "root_body": "r_mount",
+      "wrist_body": "wuji_wrist",
+      "fingers": [
+        {
+          "name": "thumb",
+          "links": [
+            "r_thumb_proximal",
+            "r_thumb_proximal_abd",
+            "r_thumb_middle",
+            "r_thumb_distal"
+          ],
+          "joints": [
+            "r_thumb_cmc_flex",
+            "r_thumb_cmc_abd",
+            "r_thumb_mcp",
+            "r_thumb_ip"
+          ],
+          "tip_site": "r_thumb_tip"
+        },
+        {
+          "name": "index_finger",
+          "links": [
+            "r_index_finger_proximal",
+            "r_index_finger_proximal_abd",
+            "r_index_finger_middle",
+            "r_index_finger_distal"
+          ],
+          "joints": [
+            "r_index_finger_mcp_flex",
+            "r_index_finger_mcp_abd",
+            "r_index_finger_pip",
+            "r_index_finger_dip"
+          ],
+          "tip_site": "r_index_finger_tip"
+        },
+        {
+          "name": "middle_finger",
+          "links": [
+            "r_middle_finger_proximal",
+            "r_middle_finger_proximal_abd",
+            "r_middle_finger_middle",
+            "r_middle_finger_distal"
+          ],
+          "joints": [
+            "r_middle_finger_mcp_flex",
+            "r_middle_finger_mcp_abd",
+            "r_middle_finger_pip",
+            "r_middle_finger_dip"
+          ],
+          "tip_site": "r_middle_finger_tip"
+        },
+        {
+          "name": "ring_finger",
+          "links": [
+            "r_ring_finger_proximal",
+            "r_ring_finger_proximal_abd",
+            "r_ring_finger_middle",
+            "r_ring_finger_distal"
+          ],
+          "joints": [
+            "r_ring_finger_mcp_flex",
+            "r_ring_finger_mcp_abd",
+            "r_ring_finger_pip",
+            "r_ring_finger_dip"
+          ],
+          "tip_site": "r_ring_finger_tip"
+        },
+        {
+          "name": "pinky",
+          "links": [
+            "r_pinky_proximal",
+            "r_pinky_proximal_abd",
+            "r_pinky_middle",
+            "r_pinky_distal"
+          ],
+          "joints": [
+            "r_pinky_mcp_flex",
+            "r_pinky_mcp_abd",
+            "r_pinky_pip",
+            "r_pinky_dip"
+          ],
+          "tip_site": "r_pinky_tip"
+        }
+      ],
+      "collision_excluded_links": [
+        "r_thumb_proximal",
+        "r_index_finger_proximal",
+        "r_middle_finger_proximal",
+        "r_ring_finger_proximal",
+        "r_pinky_proximal"
+      ],
+      "selfcol_links": [
+        [
+          "r_thumb_proximal_abd",
+          "r_thumb_middle",
+          "r_thumb_distal"
+        ],
+        [
+          "r_index_finger_proximal_abd",
+          "r_index_finger_middle",
+          "r_index_finger_distal"
+        ],
+        [
+          "r_middle_finger_proximal_abd",
+          "r_middle_finger_middle",
+          "r_middle_finger_distal"
+        ],
+        [
+          "r_ring_finger_proximal_abd",
+          "r_ring_finger_middle",
+          "r_ring_finger_distal"
+        ],
+        [
+          "r_pinky_proximal_abd",
+          "r_pinky_middle",
+          "r_pinky_distal"
+        ]
+      ]
+    }
+  }
+}

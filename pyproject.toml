@@ -1,0 +1,88 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "toporetarget"
+version = "0.1.0"
+description = "Object-centric interaction-mesh retargeting of human hand-object motion to a dexterous robot hand."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+requires-python = ">=3.10"
+authors = [{ name = "Wuji Technology", email = "support@wuji.tech" }]
+dependencies = [
+    # MuJoCo 3.4+: the scene builder uses the MjSpec API, and the 3.3 series
+    # returns mj_geomDistance's fromto reversed for mesh pairs, which the
+    # solver refuses. daqp solves every QP.
+    "mujoco>=3.4",
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "trimesh>=4.0",
+    "daqp>=0.10",
+    "tqdm>=4.66",
+    "PyYAML>=6.0",
+    # Result viewer (browser-based) and offscreen videos.
+    "viser>=1.1",
+    "imageio[ffmpeg]>=2.30",
+    # Public datasets: convex decomposition of concave objects.
+    "coacd>=1.0",
+    "fast-simplification>=0.2",
+]
+
+[project.optional-dependencies]
+# TACO and OakInk2 store their annotations as pickled PyTorch tensors; a CPU
+# build is enough (environment.yml installs it from the CPU index).
+datasets = ["torch"]
+# ruff is pinned so CI and local checks apply the same rules and formatting.
+dev = ["pytest>=8", "ruff==0.15.11"]
+
+[project.scripts]
+toporetarget = "toporetarget.cli:main"
+
+[project.urls]
+Homepage = "https://tsinghua-mars-lab.github.io/toporetarget-web/"
+Repository = "https://github.com/wuji-technology/toporetarget"
+Issues = "https://github.com/wuji-technology/toporetarget/issues"
+
+[tool.setuptools.packages.find]
+include = ["toporetarget*"]
+# Only directories with an __init__.py: the data directories and the
+# wuji-description submodule are package data, not packages.
+namespaces = false
+
+[tool.setuptools.package-data]
+# The scenes, robot configs and solver defaults, and of the wuji-description
+# submodule only the Wuji Hand 2 model the robot configs load, with its license.
+toporetarget = [
+    "defaults.json",
+    "robots/*.json",
+    "assets/README.md",
+    "assets/scenes/*.xml",
+    "assets/wuji-description/LICENSE",
+    "assets/wuji-description/hand2/hand2_2/body/mjcf/*.xml",
+    "assets/wuji-description/hand2/hand2_2/body/meshes/*/[lr]_*_distal.STL",
+    "assets/wuji-description/hand2/hand2_2/body/meshes/*/[lr]_*_middle.STL",
+    "assets/wuji-description/hand2/hand2_2/body/meshes/*/[lr]_*_proximal.STL",
+    "assets/wuji-description/hand2/hand2_2/body/meshes/*/[lr]_*_proximal_abd.STL",
+    "assets/wuji-description/hand2/hand2_2/body/meshes/*/[lr]_*_tip_sensor_frame.STL",
+    "assets/wuji-description/hand2/hand2_2/body/meshes/*/[lr]_mount.STL",
+    "assets/wuji-description/hand2/hand2_2/body/meshes/*/[lr]_wrist.STL",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "examples/wuji_mjlab"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+extend-exclude = ["output", "data", "toporetarget/assets/wuji-description"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "UP", "D", "ERA", "FIX", "I", "RUF100"]
+# Docstrings are required on the public API by review, not on every definition.
+ignore = ["D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
