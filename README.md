@@ -161,6 +161,17 @@ output/                  results, output/<dataset>/<robot>_retarget/ (git-ignore
 tests/                   pytest suite on the example clip
 ```
 
+## Contributors
+
+- [Jielin Wu](https://github.com/AIRJASON50)
+- [Shenzhe Yao](https://github.com/LeopoldYao)
+- [Guanqi He](https://github.com/GuanqiHe) (project lead)
+- [Xiaohan Liu](https://github.com/Infas12) (project lead)
+- [Zhaoqing Zeng](https://github.com/zzqsgfw)
+- [Xiangrui Jiang](https://github.com/XiangruiJiang)
+- [Han Yang](https://github.com/yanghan-a)
+- [Wentao Zhang](https://github.com/zhangwt20011015)
+
 ## Citation
 
 ```bibtex
