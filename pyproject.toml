@@ -41,7 +41,7 @@ dev = ["pytest>=8", "ruff==0.15.11"]
 toporetarget = "toporetarget.cli:main"
 
 [project.urls]
-Homepage = "https://tsinghua-mars-lab.github.io/toporetarget-web/"
+Homepage = "https://toporetarget2026.github.io/TopoRetarget/"
 Repository = "https://github.com/wuji-technology/toporetarget"
 Issues = "https://github.com/wuji-technology/toporetarget/issues"
 

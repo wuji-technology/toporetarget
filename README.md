@@ -3,12 +3,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![MuJoCo](https://img.shields.io/badge/MuJoCo-3.4+-0a7bbb.svg)](https://mujoco.org)
-[![Project page](https://img.shields.io/badge/Project-page-8A2BE2.svg)](https://tsinghua-mars-lab.github.io/toporetarget-web/)
-[![Paper](https://img.shields.io/badge/Paper-PDF-b31b1b.svg)](https://tsinghua-mars-lab.github.io/toporetarget-web/static/images/paper.pdf)
+[![Project page](https://img.shields.io/badge/Project-page-8A2BE2.svg)](https://toporetarget2026.github.io/TopoRetarget/)
+[![Paper](https://img.shields.io/badge/Paper-PDF-b31b1b.svg)](https://arxiv.org/abs/2606.16272)
 
 > Interaction-preserving retargeting of human hand-object motion to the Wuji Hand: an interaction mesh over hand keypoints and object surface samples, solved frame by frame as a QP under kinematic and non-penetration constraints, with one parameter set across objects, scales and clips. The pen-spin reference motions in [wuji-mjlab](https://github.com/wuji-technology/wuji-mjlab) are generated with TopoRetarget and converted to the task's clip format by the [example adapter](examples/wuji_mjlab/).
 
-Code of *TopoRetarget: Interaction-Preserving Retargeting for Dexterous Manipulation*. [Project page](https://tsinghua-mars-lab.github.io/toporetarget-web/) · [Paper](https://tsinghua-mars-lab.github.io/toporetarget-web/static/images/paper.pdf) · [RL training and deployment](https://github.com/wuji-technology/wuji-mjlab)
+Code of *TopoRetarget: Interaction-Preserving Retargeting for Dexterous Manipulation*. [Project page](https://toporetarget2026.github.io/TopoRetarget/) · [Paper](https://arxiv.org/abs/2606.16272) · [RL training and deployment](https://github.com/wuji-technology/wuji-mjlab)
 
 ## Demos
 
@@ -26,7 +26,7 @@ The GRAB, TACO, OakInk2 and HOT3D panels render data of those releases (their ca
   <img src="docs/images/pipeline.png" width="100%" alt="TopoRetarget pipeline: input, bone-direction warm up, interaction-mesh Laplacian optimization, output" />
 </p>
 
-From a human demonstration (21 hand keypoints and object poses per frame), the object meshes and the robot hand model, TopoRetarget solves each frame as a small QP: a bone-direction warm up, then an interaction-mesh optimization that preserves the distance-weighted Laplacian over hand keypoints and object surface samples under joint limits and a non-penetration constraint. The robot reproduces which keypoints touch the object and how, not the human's joint angles; one parameter set serves every clip, object and scale, and there is no training stage. A sliding-window pass then reduces finger-to-finger interpenetration, for a bounded number of iterations per window. Details, baselines and the RL results are in the [paper](https://tsinghua-mars-lab.github.io/toporetarget-web/static/images/paper.pdf).
+From a human demonstration (21 hand keypoints and object poses per frame), the object meshes and the robot hand model, TopoRetarget solves each frame as a small QP: a bone-direction warm up, then an interaction-mesh optimization that preserves the distance-weighted Laplacian over hand keypoints and object surface samples under joint limits and a non-penetration constraint. The robot reproduces which keypoints touch the object and how, not the human's joint angles; one parameter set serves every clip, object and scale, and there is no training stage. A sliding-window pass then reduces finger-to-finger interpenetration, for a bounded number of iterations per window. Details, baselines and the RL results are in the [paper](https://arxiv.org/abs/2606.16272).
 
 ## Requirements
 
